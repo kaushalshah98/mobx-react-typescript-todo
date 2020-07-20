@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./input.scss";
-import { INewItem } from "../../../shared/interface";
+import DataList from '../../../store/list';
 
-const Input = (props: inputProps) => {
-  const { newItem, onHandleInput } = props;
+const Input = () => {
+  const datalist = useContext(DataList);
+  const { newItem, onHandleInput } = datalist;
   return (
     <div className="form">
       <header>
@@ -19,8 +20,5 @@ const Input = (props: inputProps) => {
     </div>
   );
 };
-export interface inputProps {
-  newItem: INewItem;
-  onHandleInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
+
 export default Input;

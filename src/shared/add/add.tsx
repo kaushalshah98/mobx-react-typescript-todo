@@ -1,10 +1,10 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import "./add.scss";
+import DataList from '../../store/list';
 
-interface Props {
-  onAddItem: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
-}
-const Add: FC<Props> = ({ onAddItem }) => {
+const Add: FC = () => {
+  const datalist = useContext(DataList);
+  const { onAddItem } = datalist;
   return (
     <div className="add-btn">
       <button onClick={onAddItem}>ADD</button>

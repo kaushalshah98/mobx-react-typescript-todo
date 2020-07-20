@@ -1,10 +1,13 @@
-import React, { FormEvent } from "react";
+import React, { FormEvent, useContext, FC } from "react";
 import Delete from "../../../shared/delete/delete";
 import "./list.scss";
 import { INewItem } from "../../../shared/interface";
+import DataList from '../../../store/list';
 
-const List = (props: listProps) => {
-  const { item, onDeleteItem, onUpdateItem } = props;
+const List: FC<any> = ({ item }) => {
+  console.log(item);
+  const datalist = useContext(DataList);
+  const { onDeleteItem, onUpdateItem } = datalist;
   return (
     <div className="list">
       <p>

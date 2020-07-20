@@ -1,28 +1,22 @@
-import React, { Fragment, FC } from "react";
+import React, { Fragment, FC, useContext } from "react";
 import "./App.css";
 import NavBar from "./components/navbar/navbar";
 import Container from "./components/to-do-container/container";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { inject, observer } from 'mobx-react';
+import DataList from './store/list';
 
 library.add(faTrash);
 
-const App: FC<any> = inject('DataList')(observer((props => {
-  const { list, newItem, handleInput, onUpdateItem, onAddItem, onDeleteItem } = props.DataList;
+const App: FC<any> = () => {
+  const datalist = useContext(DataList);
+  const { totalItems } = datalist;
   return (
     <Fragment>
-      <NavBar totalItems={list.length}></NavBar>
-      <Container
-        list={list}
-        newItem={newItem}
-        onUpdateItem={onUpdateItem}
-        onHandleInput={handleInput}
-        onDeleteItem={onDeleteItem}
-        onAddItem={onAddItem}
-      ></Container>
+      <NavBar totalItems={totalItems}></NavBar>
+      <Container></Container>
     </Fragment>
   );
-})));
+};
 
 export default App;
