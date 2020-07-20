@@ -4,14 +4,9 @@ import List from "../list/list";
 import DataList from '../../../store/list';
 import { observer } from 'mobx-react';
 
-const ListContainer: FC<any> = (observer(props => {
-  const datalist = useContext(DataList);
-  const { list } = datalist;
-  const listItems = list.map((item) => {
-    return (
-      <List key={item.key} item={item} />
-    );
-  });
+const ListContainer: FC = (observer(() => {
+  const { list } = useContext(DataList);
+  const listItems = list.map((item) => <List key={item.key} item={item} />);
   return <Fragment>{listItems}</Fragment>;
 }));
 

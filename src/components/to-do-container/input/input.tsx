@@ -1,11 +1,10 @@
 import React, { useContext, FC } from "react";
-import "./input.scss";
 import DataList from '../../../store/list';
 import { observer } from 'mobx-react';
+import "./input.scss";
 
-const Input: FC<any> = (observer(props => {
-  const datalist = useContext(DataList);
-  const { newItem, onHandleInput } = datalist;
+const Input: FC = (observer(() => {
+  const { newItem, onHandleInput } = useContext(DataList);;
   return (
     <div className="form">
       <header>

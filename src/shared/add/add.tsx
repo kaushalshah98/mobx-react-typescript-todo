@@ -3,8 +3,7 @@ import "./add.scss";
 import DataList from '../../store/list';
 
 const Add: FC = () => {
-  const datalist = useContext(DataList);
-  const { onAddItem } = datalist;
+  const { onAddItem } = useContext(DataList);
   return (
     <div className="add-btn">
       <button onClick={onAddItem}>ADD</button>
