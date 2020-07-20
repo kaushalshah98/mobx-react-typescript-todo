@@ -12,10 +12,8 @@ class DataList {
 
   @observable onAddItem: any = (e: ChangeEvent) => {
     e.preventDefault();
-    console.log(this.newItem);
     if (this.newItem.value !== '') {
       this.list = [...this.list, this.newItem];
-      console.log(this.list);
       this.newItem = { key: 0, value: '' };
     }
   };

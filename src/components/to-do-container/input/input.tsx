@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, FC } from "react";
 import "./input.scss";
 import DataList from '../../../store/list';
+import { observer } from 'mobx-react';
 
-const Input = () => {
+const Input: FC<any> = (observer(props => {
   const datalist = useContext(DataList);
   const { newItem, onHandleInput } = datalist;
   return (
@@ -19,6 +20,6 @@ const Input = () => {
       </header>
     </div>
   );
-};
+}));
 
 export default Input;

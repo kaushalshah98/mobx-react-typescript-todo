@@ -1,11 +1,10 @@
-import React, { FormEvent, useContext, FC } from "react";
+import React, { useContext, FC } from "react";
 import Delete from "../../../shared/delete/delete";
 import "./list.scss";
-import { INewItem } from "../../../shared/interface";
+import { observer } from 'mobx-react';
 import DataList from '../../../store/list';
 
-const List: FC<any> = ({ item }) => {
-  console.log(item);
+const List: FC<any> = (observer(props => {
   const datalist = useContext(DataList);
   const { onDeleteItem, onUpdateItem } = datalist;
   return (
@@ -13,17 +12,12 @@ const List: FC<any> = ({ item }) => {
       <p>
         <input
           type="text"
-          value={item.value}
-          onChange={(e) => onUpdateItem(item.key, e.target.value)}
+          value={props.item.value}
+          onChange={(e) => onUpdateItem(props.item.key, e.target.value)}
         ></input>
-        <Delete onDeleteItem={() => onDeleteItem(item.key)}></Delete>
+        <Delete onDeleteItem={() => onDeleteItem(props.item.key)}></Delete>
       </p>
     </div>
   );
-};
-export interface listProps {
-  item: INewItem;
-  onUpdateItem: (arg0: number, arg1: string) => void;
-  onDeleteItem: (agr0: number) => FormEvent;
-}
+}));
 export default List;
