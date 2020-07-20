@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import React from "react";
 import DataList from '../../../store/list';
 import { observer } from 'mobx-react';
 import "./input.scss";
 
-const Input: FC = () => {
+const Input = () => {
   const { newItem, onHandleInput } = DataList;
   return (
     <div className="form">

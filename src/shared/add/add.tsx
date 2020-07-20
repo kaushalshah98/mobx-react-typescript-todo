@@ -1,8 +1,8 @@
-import React, { FC, } from "react";
+import React from "react";
 import "./add.scss";
 import DataList from '../../store/list';
 
-const Add: FC = () => {
+const Add = () => {
   const { onAddItem } = DataList;
   return (
     <div className="add-btn">
