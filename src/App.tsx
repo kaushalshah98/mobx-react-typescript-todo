@@ -9,7 +9,7 @@ import "./App.css";
 
 library.add(faTrash);
 
-const App: FC<any> = (observer(() => {
+const App: FC<any> = () => {
   const { totalItems } = DataList;
   return (
     <Fragment>
@@ -17,6 +17,6 @@ const App: FC<any> = (observer(() => {
       <Container></Container>
     </Fragment>
   );
-}));
+};
 
-export default App;
+export default observer(App);

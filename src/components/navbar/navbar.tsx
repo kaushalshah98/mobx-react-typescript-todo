@@ -3,6 +3,6 @@ import NavBarHTML from './navbar.html';
 import { observer } from 'mobx-react';
 import "./navbar.scss";
 
-const NavBar: FC<{ totalItems: number }> = (observer(({ totalItems }) => <NavBarHTML totalItems={totalItems} />));
+const NavBar: FC<{ totalItems: number }> = ({ totalItems }) => <NavBarHTML totalItems={totalItems} />;
 
-export default memo(NavBar);
+export default memo(observer(NavBar));

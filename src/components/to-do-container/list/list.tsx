@@ -5,7 +5,7 @@ import DataList from '../../../store/list';
 import { INewItem } from "../../../shared/interface";
 import "./list.scss";
 
-const List: FC<{ item: INewItem }> = (observer(({ item }) => {
+const List: FC<{ item: INewItem }> = ({ item }) => {
   const { onDeleteItem, onUpdateItem } = DataList;
   return (
     <div className="list">
@@ -19,5 +19,5 @@ const List: FC<{ item: INewItem }> = (observer(({ item }) => {
       </p>
     </div>
   );
-}));
-export default List;
+};
+export default observer(List);

@@ -4,11 +4,11 @@ import Add from "../../../shared/add/add";
 import { observer } from 'mobx-react';
 import "./header.scss";
 
-const Header: FC = (observer(() =>
+const Header: FC = () =>
   <>
     <Input></Input>
     <Add></Add>
   </>
-));
+  ;
 
-export default Header;
+export default observer(Header);

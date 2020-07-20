@@ -3,7 +3,7 @@ import DataList from '../../../store/list';
 import { observer } from 'mobx-react';
 import "./input.scss";
 
-const Input: FC = (observer(() => {
+const Input: FC = () => {
   const { newItem, onHandleInput } = DataList;
   return (
     <div className="form">
@@ -19,6 +19,6 @@ const Input: FC = (observer(() => {
       </header>
     </div>
   );
-}));
+};
 
-export default Input;
+export default observer(Input);
