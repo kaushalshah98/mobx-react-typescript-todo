@@ -1,15 +1,15 @@
-import React, { Fragment } from "react";
+import React, { Fragment, FC } from "react";
 import "./App.css";
 import NavBar from "./components/navbar/navbar";
 import Container from "./components/to-do-container/container";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import useToDoState from "./stateMaintainer/state";
+import { inject, observer } from 'mobx-react';
 
 library.add(faTrash);
 
-const App = () => {
-  const { list, newItem, handleInput, onUpdateItem, onAddItem, onDeleteItem } = useToDoState();
+const App: FC<any> = inject('DataList')(observer((props => {
+  const { list, newItem, handleInput, onUpdateItem, onAddItem, onDeleteItem } = props.DataList;
   return (
     <Fragment>
       <NavBar totalItems={list.length}></NavBar>
@@ -23,7 +23,6 @@ const App = () => {
       ></Container>
     </Fragment>
   );
-
-}
+})));
 
 export default App;

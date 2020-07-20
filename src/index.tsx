@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import "bootstrap/dist/css/bootstrap.css";
+import { Provider } from 'mobx-react'
+import DataList from './store/list';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider DataList={DataList}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
