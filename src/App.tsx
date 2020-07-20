@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
+import "./App.css";
+import NavBar from "./components/navbar/navbar";
+import Container from "./components/to-do-container/container";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import useToDoState from "./stateMaintainer/state";
 
-function App() {
+library.add(faTrash);
+
+const App = () => {
+  const { list, newItem, handleInput, onUpdateItem, onAddItem, onDeleteItem } = useToDoState();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <NavBar totalItems={list.length}></NavBar>
+      <Container
+        list={list}
+        newItem={newItem}
+        onUpdateItem={onUpdateItem}
+        onHandleInput={handleInput}
+        onDeleteItem={onDeleteItem}
+        onAddItem={onAddItem}
+      ></Container>
+    </Fragment>
   );
+
 }
 
 export default App;
