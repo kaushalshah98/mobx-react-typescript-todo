@@ -1,4 +1,4 @@
-import React, { Fragment, FC, useContext } from "react";
+import React, { Fragment, FC, } from "react";
 import NavBar from "./components/navbar/navbar";
 import Container from "./components/to-do-container/container";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -10,7 +10,7 @@ import "./App.css";
 library.add(faTrash);
 
 const App: FC<any> = (observer(() => {
-  const { totalItems } = useContext(DataList);
+  const { totalItems } = DataList;
   return (
     <Fragment>
       <NavBar totalItems={totalItems}></NavBar>

@@ -1,12 +1,12 @@
-import React, { useContext, FC } from "react";
+import React, { FC } from "react";
 import Delete from "../../../shared/delete/delete";
-import "./list.scss";
 import { observer } from 'mobx-react';
 import DataList from '../../../store/list';
 import { INewItem } from "../../../shared/interface";
+import "./list.scss";
 
 const List: FC<{ item: INewItem }> = (observer(({ item }) => {
-  const { onDeleteItem, onUpdateItem } = useContext(DataList);;
+  const { onDeleteItem, onUpdateItem } = DataList;
   return (
     <div className="list">
       <p>

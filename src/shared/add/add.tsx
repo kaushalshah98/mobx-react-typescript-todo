@@ -1,9 +1,9 @@
-import React, { FC, useContext } from "react";
+import React, { FC, } from "react";
 import "./add.scss";
 import DataList from '../../store/list';
 
 const Add: FC = () => {
-  const { onAddItem } = useContext(DataList);
+  const { onAddItem } = DataList;
   return (
     <div className="add-btn">
       <button onClick={onAddItem}>ADD</button>
