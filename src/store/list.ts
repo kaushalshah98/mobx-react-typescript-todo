@@ -1,9 +1,15 @@
 import { observable, action, computed } from 'mobx';
 import { INewItem } from '../shared/interface';
 import { ChangeEvent } from 'react';
+
 class DataList {
-  @observable list: INewItem[] = [{ key: 0, value: 'hii' }];
-  @observable newItem: INewItem = { key: 0, value: '' };
+  @observable list: INewItem[];
+  @observable newItem: INewItem;
+
+  constructor() {
+    this.list = [{ key: 0, value: 'hii' }];
+    this.newItem = { key: 0, value: '' };
+  }
 
   @action('Delete A Item from a List')
   onDeleteItem = (key: number) => {
