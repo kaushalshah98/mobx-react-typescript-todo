@@ -1,7 +1,7 @@
-import { observable, action, computed } from 'mobx';
+import { observable, action, computed, configure } from 'mobx';
 import { INewItem } from '../shared/interface';
 import { ChangeEvent } from 'react';
-
+configure({ enforceActions: true });
 class DataList {
   @observable list: INewItem[];
   @observable newItem: INewItem;
@@ -39,6 +39,7 @@ class DataList {
     const key = Date.now();
     this.newItem = { key, value };
   };
+
   @computed
   get totalItems() {
     return this.list.length;
