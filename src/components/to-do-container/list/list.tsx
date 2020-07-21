@@ -6,7 +6,7 @@ import { INewItem } from "../../../shared/interface";
 import "./list.scss";
 
 const List: FC<{ item: INewItem }> = ({ item }) => {
-  const { onDeleteItem, onUpdateItem } = DataList;
+  const { onUpdateItem } = DataList;
   return (
     <div className="list">
       <p>
@@ -15,7 +15,7 @@ const List: FC<{ item: INewItem }> = ({ item }) => {
           value={item.value}
           onChange={(e) => onUpdateItem(item.key, e.target.value)}
         />
-        <Delete onDeleteItem={() => onDeleteItem(item.key)} />
+        <Delete item={item} />
       </p>
     </div>
   );
